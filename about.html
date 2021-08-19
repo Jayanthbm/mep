@@ -36,12 +36,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link active" href="index.html">Home</a></li>
-          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link " href="index.html">Home</a></li>
+          <li><a class="nav-link active" href="about.html">About</a></li>
           <li><a class="nav-link" href="services.html">Services</a></li>
           <li><a class="nav-link " href="portofolio.html">Portfolio</a></li>
           <li><a class="nav-link" href="team.html">Team</a></li>
-          <li><a class="nav-link" href="contact.html">Contact</a></li>
+          <li><a class="nav-link " href="contact.html">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -49,13 +49,52 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <h1>Welcome to <span>SERVICES CONSULTANTS</span></h1>
-      <h2>Delivering Integrated Designs for more than three decades</h2>
-    </div>
-  </section><!-- End Hero -->
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <img src="assets/img/collage.jpeg" class="img-fluid" alt="" loading="lazy">
+            <p style="text-align: center;font-size: 15px;">(Ref. Office images)</p>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
+            data-aos-delay="100">
+            <p style="color:black;text-align: justify;">
+              SERVICES CONSULTANTS is a design consultancy firm with its head quarters in Bangalore, India
+              having been in the business of consultancy for buildings and infrastructure in the private
+              and public domain since 1988. We have delivered more than 2000 projects till date across
+              the globe having the experience of designing townships, airports, hospitals, hotels,
+              commercial, residentials, retail, pharma, industrial, religious, educational, mixed use,
+              layouts, offices and smart cities. Some of our esteemed cliental include DIAL, BIAL, KPCL,
+              KPWD, ISRO, HAL, Vedanta, Tata, Prestige, Bren, Ozone, Marriott, Taj, Radisson, Holiday Inn,
+              Royal Orchid, ITC, Embassy, Raheja, Mitsubishi, Puma, Manipal, Vydehi, Sarovar, BOSCH,
+              ISKCON etc.
+            </p>
+            <p style="color:black;text-align: justify;">
+              Our organization consists of skilled people committed to values, which are reflected in its
+              recognition, expertise, cliental, ownership, communication, sustainability, partnerships and
+              teamwork. Each employee / partner / associate strive to embrace these behaviors daily.
+              Each project is unique to us and brings a new commitment to design systems that work
+              towards the satisfaction of its users. We believe in delivering a high quality, timely, cost
+              conscious, energy conscious, water conscious sustainable and resilient design to our
+              customers adhearing to global and local standards of best practices. Our commitment to the
+              project delivery from the project conceptulization stage to the project completion stage is
+              reflected through the project design delivery methodology.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- End About Section -->
+  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -74,7 +113,6 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <!-- Template Main JS File -->
   <script>
     (function () {
@@ -112,6 +150,7 @@
       const onscroll = (el, listener) => {
         el.addEventListener('scroll', listener);
       };
+
 
       /**
        * Header fixed top on scroll
@@ -173,6 +212,18 @@
         true
       );
 
+
+      /**
+       * Scroll with ofset on page load with hash links in the url
+       */
+      window.addEventListener('load', () => {
+        if (window.location.hash) {
+          if (select(window.location.hash)) {
+            scrollto(window.location.hash);
+          }
+        }
+      });
+
       /**
        * Preloader
        */
@@ -182,7 +233,6 @@
           preloader.remove();
         });
       }
-
 
       /**
        * Animation on scroll
@@ -198,6 +248,7 @@
     })();
 
   </script>
+
 </body>
 
 </html>
