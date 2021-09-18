@@ -25,7 +25,21 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+    .cimg {
+      height: 400px;
+      width: 400px;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
+    .card-body {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -62,31 +76,39 @@
         <div class="section-title">
           <h2>Principals</h2>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 25px;">
           <div class="col-sm-6">
             <div class="card">
-              <img class="card-img-top" src="./assets/img/team/team-1.png" alt="Card image cap" height="500">
+              <img class="card-img-top cimg" src="./assets/img/team/team-1.png" alt="Satish N. Iyengar" />
               <div class="card-body">
                 <h5 class="card-title">Satish N. Iyengar</h5>
-                <p class="card-text">B.E. (Hons-M&E), MBA</p>
-                <p class="card-text">Proprietor & Founder</p>
+                <p>
+                  B.E. (Hons-M&E), MBA <br />
+                  Proprietor & Founder
+                </p>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
-            <img class="card-img-top" src="./assets/img/team/team-2.jpg" alt="Card image cap" height="500">
             <div class="card">
+              <img class="card-img-top cimg" src="./assets/img/team/team-2.jpg" alt="Dr. Rupesh S. Iyengar" />
               <div class="card-body">
-                <h5 class="card-title">Dr. Rupesh Iyengar</h5>
-                <p class="card-text">B.E., M. Sc. (NUS Singapore),Dr. sc. (ETH Zurich) </p>
-                <p class="card-text">Director</p>
+                <h5 class="card-title">Dr. Rupesh S. Iyengar</h5>
+                <p>
+                  B.E., M.Sc., Dr. sc. (Architecture)<br />
+                  Director
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-
+        <div class="section-title">
+          <h2>ORGANISATION CHART</h2>
+        </div>
+        <div id="chart_div" style="overflow: scroll;padding-right: 2%;padding-left: 2%;"></div>
       </div>
+
+
     </section><!-- End Team Section -->
 
   </main><!-- End #main -->
@@ -116,6 +138,66 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { packages: ["orgchart"] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Name');
+      data.addColumn('string', 'Manager');
+
+      // For each orgchart box, provide the name, manager, and tooltip to show.
+      data.addRows([
+        ['Proprietor', ''],
+        ['Director', 'Proprietor'],
+        ['Associates', 'Director'],
+        ['Finance Section', 'Director'],
+        ['HR Section', 'Director'],
+        ['Electrical & ELV Head', 'Director'],
+        ['PHE Head', 'Director'],
+        ['IBMS & IOT Head', 'Director'],
+        ['Design Head', 'Director'],
+        ['HVAC Head', 'Director'],
+        ['Sustainability', 'Director'],
+        ['Fire Head', 'Director'],
+
+        ['Design Team', 'Electrical & ELV Head'],
+        ['Site Team', 'Electrical & ELV Head'],
+
+        [' Design Team', 'PHE Head'],
+        [' Site Team', 'PHE Head'],
+
+        ['Design Team ', 'IBMS & IOT Head'],
+        ['Site Team ', 'IBMS & IOT Head'],
+
+        ['Design  Team', 'Design Head'],
+        ['Site  Team', 'Design Head'],
+
+        [' Design Team ', 'HVAC Head'],
+        [' Site Team ', 'HVAC Head'],
+
+        [' Design  Team', 'Sustainability'],
+        [' Site  Team', 'Sustainability'],
+
+        ['Design  Team ', 'Fire Head'],
+        ['Site  Team ', 'Fire Head'],
+
+        ['Draftsmen', 'Design Team'],
+        [' Draftsmen', ' Design Team'],
+        ['Draftsmen ', 'Design Team '],
+        [' Draftsmen ', 'Design  Team'],
+        ['  Draftsmen', ' Design Team '],
+        ['Draftsmen  ', ' Design  Team'],
+        ['  Draftsmen  ', 'Site  Team '],
+      ]);
+
+      // Create the chart.
+      var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+      // Draw the chart, setting the allowHtml option to true for the tooltips.
+      chart.draw(data, { 'allowCollapse': true, 'size': 'medium' });
+    }
+  </script>
 </body>
 
 </html>
