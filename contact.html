@@ -111,38 +111,10 @@
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-6 ">
+          <div class="col-lg-12 ">
             <iframe class="mb-4 mb-lg-0"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6605942144097!2d77.58696340642739!3d12.929522472447639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15a25abb540b%3A0xc863793fc1eff76f!2s13th%20Main%20Rd%20%26%2029th%20B%20Cross%20Rd%2C%204th%20T%20Block%20East%2C%20KV%20Layout%2C%20Jayanagar%2C%20Bengaluru%2C%20Karnataka%20560011!5e0!3m2!1sen!2sin!4v1624437517633!5m2!1sen!2sin"
               frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
-          </div>
-
-          <div class="col-lg-6">
-            <form action="https://jbm.glitch.me/sendEmail" method="post" role="form" class="php-email-form"
-              id="contactForm">
-              <div id="fr"></div>
-              <div class="row">
-                <div class="col form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message"
-                  required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
           </div>
 
         </div>
@@ -175,32 +147,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script>
-    $('#contactForm').submit(function (e) {
-      e.preventDefault();
-      var form = $(this);
-      var url = form.attr('action');
-      $('#fr').html('');
-      $('#fr').html(`<span style="color:green;">Thank you for Contacting Us</span>`);
-      $.ajax({
-        type: "POST",
-        url: url,
-        data: {
-          name: $('#name').val(),
-          email: $('#email').val(),
-          subject: $('#subject').val(),
-          message: $('#message').val()
-        },
-        success: function (data) {
-        },
-        error: function (err) {
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
